@@ -45,3 +45,12 @@ docker build . -t taciogt/docker-mastery_node-app
 docker container run --rm --publish 80:3000 taciogt/docker-mastery_node-app
 
 ``` 
+
+
+### Keeping it clean:
+* `docker image prune` cleans up just "dangling images"
+* `docker system prune` will clean up everything
+
+`docker image prune -a` will remove all images you're not using.
+`docker system df` shows space usage.
+
