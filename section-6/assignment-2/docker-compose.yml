@@ -1,0 +1,26 @@
+version: '3.7'
+
+services:
+  drupal:
+    build: .
+    image: custom-drupal
+    ports:
+      - '8080:80'
+    volumes:
+      - drupal-modules:/var/www/html/modules
+      - drupal-profiles:/var/www/html/profiles
+      - drupal-themes:/var/www/html/themes
+      - drupal-sites:/var/www/html/sites
+  database:
+    image: postgres:10.11
+    environment:
+      POSTGRES_PASSWORD: example
+    volumes:
+      - drupal-data:/var/lib/postgresql/data
+
+volumes:
+  drupal-modules:
+  drupal-profiles:
+  drupal-themes:
+  drupal-sites:
+  drupal-data:

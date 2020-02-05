@@ -31,3 +31,14 @@ Some useful commands:
 * `docker-compose down`
 * `docker-compose ps`
 * `docker-compose top`
+
+### Adding Image Building to Compose Files
+
+* Compose can also build your custom images
+* Will build them with `docker-compose up` if not found in cache
+* Also rebuild with `docker-compose build`
+* Great for complex builds that have lots of vars or build args
+
+To remove the images created with the Docker Compose: `docker-compose down --rmi all|local`
+
+In doubt, run `docker-compose down --help`
