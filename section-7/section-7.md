@@ -77,4 +77,21 @@ docker container ls
 
 ### Create 3-Node Swarm: Host Options
 
-...
+[Configure Firewall ports at AWS](https://www.bretfisher.com/docker-swarm-firewall-ports/)
+
+Create 3 instances at AWS with the Security Group configuration from the link above. Install Docker in each instance.
+```
+# on node 1:
+docker swarm init
+docker swarm join-token manager
+
+# on nodes 2 and 3:
+docker swarm join --token ...
+
+# on node 1:
+docker service create --replicas 3 alpine ping 8.8.8.8
+
+
+# to upgrade a node role:
+docker node update --role manager <node-name>
+```
